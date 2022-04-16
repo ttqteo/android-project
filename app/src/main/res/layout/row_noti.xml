@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/noti"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginEnd="10dp"
+    android:background="@drawable/border">
+    <ImageView
+        android:id="@+id/avt"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_baseline_account_circle_25" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:id="@+id/text"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/department_noti"
+            android:textStyle="bold"
+            android:justificationMode="inter_word"
+            android:text="Phòng Đào Tạo mới ra thông báo mới. Bấm vào để xem."
+            android:textSize="22sp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/title_noti"
+            android:justificationMode="inter_word"
+            android:text="Danh sách sinh viên tốt nghiệp Đại học tháng 3/2022 (update)"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_noti"
+            android:text="6:50 07-04-2022"
+            android:textStyle="italic"
+            />
+    </LinearLayout>
+
+</LinearLayout>

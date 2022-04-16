@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val scheduleFragment = ScheduleFragment()
-    private val newsfeedFragment = NewsfeedFragment()
+    private val newsfeedFragment = NewFragment()
     private val notificationFragment = NotificationFragment()
     private val profileFragment = ProfileFragment()
 
