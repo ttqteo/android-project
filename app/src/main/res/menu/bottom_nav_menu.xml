@@ -13,7 +13,7 @@
 
         android:title="Schedule" />
     <item
-        android:id="@+id/newsfeed_bot"
+        android:id="@+id/new_bot"
 
         android:icon="@drawable/ic_baseline_border_color_24"
  />
