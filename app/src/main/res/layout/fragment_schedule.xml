@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="600dp"
     tools:context=".ScheduleFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".test">
+
+        <TextView
+            android:id="@+id/survey"
+            android:layout_width="246dp"
+            android:layout_height="29dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Thời khóa biểu 21-22/HK2"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon5"
+            android:layout_width="20dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/img_7"
+            app:layout_constraintBottom_toBottomOf="@+id/survey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/survey" />
+
+        <ImageView
+            android:id="@+id/icon7"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:src="@drawable/img_8"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/survey"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

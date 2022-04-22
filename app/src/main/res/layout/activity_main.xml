@@ -8,10 +8,10 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:logo="@drawable/logo"
-        android:id="@+id/tool_bar">
+        app:logo="@drawable/logo">
 
         <TextView
             android:id="@+id/user_name"
@@ -20,15 +20,14 @@
             android:layout_marginStart="180dp"
             android:text="Trần Quang Tú"
             android:textSize="16sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/avatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_baseline_account_circle_25"
-            android:layout_marginLeft="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/img/img" />
 
     </androidx.appcompat.widget.Toolbar>
 

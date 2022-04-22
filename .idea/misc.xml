@@ -20,6 +20,30 @@
         <entry key="..\:/HCMUS/21-22_2/Lap trinh di dong/DA/android5/app/src/main/res/layout/fragment_notification.xml" value="0.10989583333333333" />
         <entry key="..\:/HCMUS/21-22_2/Lap trinh di dong/DA/android5/app/src/main/res/layout/layout.xml" value="0.19157608695652173" />
         <entry key="..\:/HCMUS/21-22_2/Lap trinh di dong/DA/android5/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/border.xml" value="0.202" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_account_circle_25.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_border_color_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_schedule_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_thumb_up_alt_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_baseline_verified_user_24.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1405" />
+        <entry key="..\:/android-project/app/src/main/res/drawable/input_border.xml" value="0.202" />
+        <entry key="..\:/android-project/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/android-project/app/src/main/res/layout/activity_test.xml" value="0.2421875" />
+        <entry key="..\:/android-project/app/src/main/res/layout/fragment_home.xml" value="0.11778115501519756" />
+        <entry key="..\:/android-project/app/src/main/res/layout/fragment_new.xml" value="0.2421875" />
+        <entry key="..\:/android-project/app/src/main/res/layout/fragment_notification.xml" value="0.2421875" />
+        <entry key="..\:/android-project/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/android-project/app/src/main/res/layout/fragment_schedule.xml" value="0.264" />
+        <entry key="..\:/android-project/app/src/main/res/layout/fragment_signin.xml" value="0.27612826603325413" />
+        <entry key="..\:/android-project/app/src/main/res/layout/fragment_signup.xml" value="0.152" />
+        <entry key="..\:/android-project/app/src/main/res/layout/row_feed.xml" value="0.2421875" />
+        <entry key="..\:/android-project/app/src/main/res/layout/row_noti.xml" value="0.11778115501519756" />
+        <entry key="..\:/android-project/app/src/main/res/layout/splash.xml" value="0.1984375" />
       </map>
     </option>
   </component>
