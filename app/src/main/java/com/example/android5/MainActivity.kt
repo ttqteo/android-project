@@ -1,6 +1,7 @@
 package com.example.android5
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.android5.databinding.ActivityMainBinding
@@ -26,6 +27,14 @@ class MainActivity : AppCompatActivity() {
         bottomNavView = binding.botNav
 
         replaceFragment(homeFragment)
+        binding.logo.setOnClickListener {
+            replaceFragment(homeFragment)
+            bottomNavView
+        }
+        binding.avatar.setOnClickListener {
+            replaceFragment(profileFragment)
+        }
+
         bottomNavView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.home_bot -> replaceFragment(homeFragment)
@@ -39,10 +48,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        if(fragment!=null){
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, fragment)
-            transaction.commit()
-        }
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.commit()
     }
 }

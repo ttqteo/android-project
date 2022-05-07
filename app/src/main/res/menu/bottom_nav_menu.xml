@@ -14,7 +14,7 @@
         android:title="Schedule" />
     <item
         android:id="@+id/new_bot"
-
+        android:title="New"
         android:icon="@drawable/ic_baseline_border_color_24"
  />
     <item
@@ -27,4 +27,6 @@
         android:icon="@drawable/ic_baseline_account_circle_24"
 
         android:title="Profile" />
+
+
 </menu>
