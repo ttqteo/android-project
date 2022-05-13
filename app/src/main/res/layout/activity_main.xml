@@ -57,8 +57,7 @@
         android:layout_height="2dp"
         android:layout_below="@+id/tool_bar"
         android:background="#0A1D63"
-        android:elevation="50dp"
-        />
+        android:elevation="50dp" />
 
     <FrameLayout
         android:id="@+id/container"
