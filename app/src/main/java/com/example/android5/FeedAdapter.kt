@@ -44,12 +44,6 @@ import com.example.android5.model.Feed
 
 
 
-
-
-
-
-
-
 class   FeedAdapter : ListAdapter<Feed, FeedAdapter.FeedViewHolder>(FeedDiffUtil()) {
 
     class FeedDiffUtil : DiffUtil.ItemCallback<Feed>() {

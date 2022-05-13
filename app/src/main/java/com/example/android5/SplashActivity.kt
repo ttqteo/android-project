@@ -14,6 +14,6 @@ class SplashActivity : AppCompatActivity() {
             // Your Code
             var intent = Intent(this, NavigationActivity::class.java)
             startActivity(intent)
-        }, 2000)
+        }, 1000)
     }
 }

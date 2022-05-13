@@ -5,10 +5,59 @@
     android:layout_height="match_parent"
     tools:context=".NewFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="new" />
+        android:orientation="vertical"
+        android:layout_marginTop="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/top_new"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tạo bài viết"
+                android:textSize="20sp"
+                android:layout_marginStart="20dp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/bt_push"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:text="Đăng"
+                android:textColor="#455D8F"
+                android:backgroundTint="#ED2C2C"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/top_new"
+            android:background="#0A1D63"
+            android:elevation="50dp" />
+
+        <EditText
+            android:id="@+id/status_new"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Bạn đang nghĩ gì?"
+            android:textSize="24sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp"
+
+            />
+
+    </LinearLayout>
 
 </FrameLayout>
