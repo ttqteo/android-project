@@ -8,40 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android5.model.Feed
-
-
-
-//class   FeedAdapter(private val newsList : ArrayList<Feed>) : RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
-//
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-//        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.row_feed, parent, false)
-//        return FeedViewHolder((itemView))
-//    }
-//
-//    override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
-//        val currentItem = newsList[position]
-//        holder.tvName.text = currentItem.name
-//        holder.tvHour.text = currentItem.hour
-//        holder.tvStatus.text = currentItem.status
-//        holder.tvTitle_status.text = currentItem.title_status
-//        holder.tvLink_home_web.text = currentItem.link_home_web
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return newsList.size
-//    }
-//
-//    class FeedViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-//        val tvName: TextView = itemView.findViewById(R.id.name)
-//        val tvHour: TextView = itemView.findViewById(R.id.hour)
-//        val tvStatus: TextView = itemView.findViewById(R.id.status)
-//        val tvTitle_status: TextView = itemView.findViewById(R.id.title_status)
-//        val tvLink_home_web: TextView = itemView.findViewById(R.id.link_home_web)
-//    }
-//}
-//
-
+import com.example.android5.database.Feed
 
 
 class   FeedAdapter : ListAdapter<Feed, FeedAdapter.FeedViewHolder>(FeedDiffUtil()) {

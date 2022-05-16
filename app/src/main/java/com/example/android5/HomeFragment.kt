@@ -10,6 +10,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.android5.database.FeedData
+import com.example.android5.database.FeedVM
+import com.example.android5.database.ViewModelFactory
 import com.example.android5.databinding.FragmentHomeBinding
 import com.example.android5.model.Feed
 
@@ -17,13 +20,17 @@ import com.example.android5.model.Feed
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    lateinit var viewModel: HomeVM
+    lateinit var viewModel: FeedVM
     private lateinit var adapter : FeedAdapter
     lateinit var newRecyclerView: RecyclerView
     lateinit var newArrayList: ArrayList<Feed>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        viewModel=ViewModelProvider(
+            this,
+            ViewModelFactory(context?.applicationContext as FeedData)
+        )[FeedVM::class.java]
     }
 
     override fun onCreateView(
@@ -39,9 +46,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-        viewModel = ViewModelProvider(this).get(HomeVM::class.java)
-
         adapter = FeedAdapter()
         val lm = LinearLayoutManager(this@HomeFragment.requireContext())
         binding.recyclerView.layoutManager=lm
@@ -54,7 +58,6 @@ class HomeFragment : Fragment() {
         super.onStart()
         viewModel.loadData()
     }
-
 
     private  fun registerData() {
         viewModel.listOfData.observe(viewLifecycleOwner){ listOfRes ->
