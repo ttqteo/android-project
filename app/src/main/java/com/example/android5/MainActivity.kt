@@ -29,10 +29,11 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(homeFragment)
         binding.logo.setOnClickListener {
             replaceFragment(homeFragment)
-            bottomNavView
+            bottomNavView.selectedItemId = R.id.home_bot
         }
         binding.avatar.setOnClickListener {
             replaceFragment(profileFragment)
+            bottomNavView.selectedItemId = R.id.profile_bot
         }
 
         bottomNavView.setOnItemSelectedListener {
