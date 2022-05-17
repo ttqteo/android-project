@@ -16,13 +16,10 @@ class   NotiAdapter : ListAdapter<Noti, NotiAdapter.NotiViewHolder>(NotiDiffUtil
         override fun areItemsTheSame(oldItem: Noti, newItem: Noti): Boolean {
             return oldItem.name == newItem.name
         }
-
         override fun areContentsTheSame(oldItem: Noti, newItem: Noti): Boolean {
             return oldItem == newItem
         }
-
     }
-
     public override fun getItemViewType(position: Int): Int {
 
         return super.getItemViewType(position)
@@ -50,13 +47,10 @@ class   NotiAdapter : ListAdapter<Noti, NotiAdapter.NotiViewHolder>(NotiDiffUtil
             val tvDepartmentNoti = itemView.findViewById<TextView>(R.id.department_noti)
             val tvTitleNoti = itemView.findViewById<TextView>(R.id.title_noti)
             val tvTimeNoti = itemView.findViewById<TextView>(R.id.time_noti)
-
-
 //            ivAvt.setImageResource(feed.avt)
             tvDepartmentNoti.text = noti.name
             tvTitleNoti.text = noti.title_status
             tvTimeNoti.text = noti.hour
-
         }
     }
 }

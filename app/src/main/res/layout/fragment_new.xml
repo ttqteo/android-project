@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewFragment">
+    tools:context=".newstatus.NewFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -50,11 +50,35 @@
             android:id="@+id/status_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
             android:hint="Bạn đang nghĩ gì?"
             android:textSize="24sp"
+
+            />
+
+        <EditText
+            android:id="@+id/status_new4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Bạn muốn mô tả nhiều hơn?"
+            android:textSize="24sp"
+
+            />
+
+        <EditText
+            android:id="@+id/linkstatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:hint="link for news !!"
+            android:textSize="24sp"
 
             />
 

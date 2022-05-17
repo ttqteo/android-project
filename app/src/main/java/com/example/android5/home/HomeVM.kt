@@ -19,11 +19,7 @@ class HomeVM(private val feedRepository: FeedRepository) : ViewModel() {
     val listOfData: LiveData<List<Feed>>
         get() = _listOfData
 
-    fun addFeed(feed: Feed) {
-        viewModelScope.launch {
-            feedRepository.addFeed(feed)
-        }
-    }
+
     fun loadData() {
         viewModelScope.launch {
             val data = feedRepository.readalldata()
