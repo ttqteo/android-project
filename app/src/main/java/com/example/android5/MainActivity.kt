@@ -1,10 +1,11 @@
 package com.example.android5
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.android5.databinding.ActivityMainBinding
+import com.example.android5.home.HomeFragment
+import com.example.android5.notify.NotificationFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 

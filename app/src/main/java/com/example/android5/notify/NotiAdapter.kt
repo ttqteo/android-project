@@ -1,4 +1,4 @@
-package com.example.android5
+package com.example.android5.notify
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,14 +7,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.android5.model.Feed
+import com.example.android5.R
 import com.example.android5.model.Noti
 
 class   NotiAdapter : ListAdapter<Noti, NotiAdapter.NotiViewHolder>(NotiDiffUtil()) {
 
     class NotiDiffUtil : DiffUtil.ItemCallback<Noti>() {
         override fun areItemsTheSame(oldItem: Noti, newItem: Noti): Boolean {
-            return oldItem.deparment_noti == newItem.deparment_noti
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: Noti, newItem: Noti): Boolean {
@@ -53,9 +53,9 @@ class   NotiAdapter : ListAdapter<Noti, NotiAdapter.NotiViewHolder>(NotiDiffUtil
 
 
 //            ivAvt.setImageResource(feed.avt)
-            tvDepartmentNoti.text = noti.deparment_noti
-            tvTitleNoti.text = noti.title_noti
-            tvTimeNoti.text = noti.time_noti
+            tvDepartmentNoti.text = noti.name
+            tvTitleNoti.text = noti.title_status
+            tvTimeNoti.text = noti.hour
 
         }
     }

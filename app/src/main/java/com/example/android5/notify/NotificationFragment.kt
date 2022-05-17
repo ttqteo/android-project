@@ -1,7 +1,5 @@
-package com.example.android5
+package com.example.android5.notify
 
-import android.database.DatabaseUtils
-import android.os.Binder
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,28 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.android5.database.FeedData
-import com.example.android5.database.FeedVM
-import com.example.android5.database.ViewModelFactory
-import com.example.android5.databinding.FragmentHomeBinding
-import com.example.android5.model.Feed
+import com.example.android5.notify.ViewModelFactory
+import com.example.android5.databinding.FragmentNotificationBinding
 
 
-class HomeFragment : Fragment() {
+class NotificationFragment : Fragment() {
 
-    private lateinit var binding: FragmentHomeBinding
-    lateinit var viewModel: FeedVM
-    private lateinit var adapter : FeedAdapter
-    lateinit var newRecyclerView: RecyclerView
-    lateinit var newArrayList: ArrayList<Feed>
+    private lateinit var binding: FragmentNotificationBinding
+    lateinit var viewModel: NotificationVM
+    private lateinit var adapter : NotiAdapter
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel=ViewModelProvider(
             this,
             ViewModelFactory(context?.applicationContext as FeedData)
-        )[FeedVM::class.java]
+        )[NotificationVM::class.java]
+
     }
 
     override fun onCreateView(
@@ -38,7 +33,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentNotificationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -46,8 +41,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        adapter = FeedAdapter()
-        val lm = LinearLayoutManager(this@HomeFragment.requireContext())
+        adapter = NotiAdapter()
+        val lm = LinearLayoutManager(this@NotificationFragment.requireContext())
         binding.recyclerView.layoutManager=lm
         binding.recyclerView.adapter=adapter
         registerData()
@@ -58,6 +53,7 @@ class HomeFragment : Fragment() {
         super.onStart()
         viewModel.loadData()
     }
+
 
     private  fun registerData() {
         viewModel.listOfData.observe(viewLifecycleOwner){ listOfRes ->

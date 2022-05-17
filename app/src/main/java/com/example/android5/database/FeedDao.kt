@@ -1,6 +1,8 @@
 package com.example.android5.database
 
 import androidx.room.*
+import com.example.android5.model.Noti
+
 @Dao
 interface FeedDao {
 
@@ -10,6 +12,9 @@ interface FeedDao {
 
     @Query("SELECT * FROM feed")
     suspend fun readalldata(): List<Feed>
+
+    @Query("SELECT name, hour,title_status  FROM feed")
+    suspend fun readnotifydata(): List<Noti>
 
     @Delete
     suspend fun delete(feed: Feed)
