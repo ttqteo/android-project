@@ -24,35 +24,63 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val bundle = intent.extras
+        if (bundle != null) {
+            val getMssv = bundle.getString("mssv")
+            binding.userName.text =  getMssv
+        }
 
         supportActionBar?.hide()
         bottomNavView = binding.botNav
 
-        replaceFragment(homeFragment)
+        replaceFragment(homeFragment,null)
         binding.logo.setOnClickListener {
-            replaceFragment(homeFragment)
+            replaceFragment(homeFragment,null)
             bottomNavView.selectedItemId = R.id.home_bot
         }
+
+
+
         binding.avatar.setOnClickListener {
-            replaceFragment(profileFragment)
+            if (bundle != null) {
+                bundle.getString("mssv")?.let { it1 -> replaceFragment(profileFragment, it1) }
+            }
             bottomNavView.selectedItemId = R.id.profile_bot
         }
 
         bottomNavView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.home_bot -> replaceFragment(homeFragment)
-                R.id.schedule_bot -> replaceFragment(scheduleFragment)
-                R.id.new_bot -> replaceFragment(newFragment)
-                R.id.notification_bot -> replaceFragment(notificationFragment)
-                R.id.profile_bot -> replaceFragment(profileFragment)
+                R.id.home_bot -> if (bundle != null) {
+                    bundle.getString("mssv")
+                        ?.let { it1 -> replaceFragment(homeFragment, it1) }
+                }
+                R.id.schedule_bot -> if (bundle != null) {
+                    bundle.getString("mssv")
+                        ?.let { it1 -> replaceFragment(scheduleFragment, it1) }
+                }
+                R.id.new_bot -> if (bundle != null) {
+                    bundle.getString("mssv")
+                        ?.let { it1 -> replaceFragment(newFragment, it1) }
+                }
+                R.id.notification_bot -> if (bundle != null) {
+                    bundle.getString("mssv")
+                        ?.let { it1 -> replaceFragment(notificationFragment, it1) }
+                }
+
+                R.id.profile_bot ->if (bundle != null) {
+                    bundle.getString("mssv")
+                        ?.let { it1 -> replaceFragment(profileFragment, it1) }
+                }
             }
             true
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: Fragment, getMissive: String?) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
+        val bundle = Bundle()
+        bundle.putString("mssv",getMissive)
+        transaction.replace(R.id.container, fragment,bundle.toString())
         transaction.commit()
     }
 }

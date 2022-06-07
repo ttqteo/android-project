@@ -36,7 +36,7 @@ class SQLiteHelper(fragment: Fragment) : SQLiteOpenHelper(fragment.requireContex
         val db = this.writableDatabase
 
         val contextValues = ContentValues()
-        contextValues.put(ID, std.id)
+        //contextValues.put(ID, std.id)
         contextValues.put(NAME, std.name)
         contextValues.put(EMAIL, std.email)
         contextValues.put(PASS, std.pass)
@@ -44,6 +44,7 @@ class SQLiteHelper(fragment: Fragment) : SQLiteOpenHelper(fragment.requireContex
         db.close()
         return success
     }
+
     fun updateUser(user: User) {
         val db = this.writableDatabase
 
@@ -55,6 +56,14 @@ class SQLiteHelper(fragment: Fragment) : SQLiteOpenHelper(fragment.requireContex
         // updating row
         db.update(
             TBL_STUDENT, values, "$ID = ?",
+            arrayOf(user.id.toString()))
+        db.close()
+    }
+    fun deleteUser(user: User) {
+        val db = this.writableDatabase
+        // delete user record by id
+        db.delete(
+            TBL_STUDENT, "$ID = ?",
             arrayOf(user.id.toString()))
         db.close()
     }
@@ -93,6 +102,80 @@ class SQLiteHelper(fragment: Fragment) : SQLiteOpenHelper(fragment.requireContex
             } while (cursor.moveToNext())
         }
         return stdList
+    }
+
+
+    /**
+     * This method to check user exist or not
+     *
+     * @param email
+     * @return true/false
+     */
+    fun checkUser(email: String): Boolean {
+        // array of columns to fetch
+        val columns = arrayOf(ID)
+        val db = this.readableDatabase
+        // selection criteria
+        val selection = "$EMAIL = ?"
+        // selection argument
+        val selectionArgs = arrayOf(email)
+        // query user table with condition
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com';
+         */
+        val cursor = db.query(
+            TBL_STUDENT, //Table to query
+            columns,        //columns to return
+            selection,      //columns for the WHERE clause
+            selectionArgs,  //The values for the WHERE clause
+            null,  //group the rows
+            null,   //filter by row groups
+            null)  //The sort order
+        val cursorCount = cursor.count
+        cursor.close()
+        db.close()
+        if (cursorCount > 0) {
+            return true
+        }
+        return false
+    }
+    /**
+     * This method to check user exist or not
+     *
+     * @param email
+     * @param password
+     * @return true/false
+     */
+    fun checkUser(email: String, password: String): Boolean {
+        // array of columns to fetch
+        val columns = arrayOf(ID)
+        val db = this.readableDatabase
+        // selection criteria
+        val selection = "$TBL_STUDENT = ? AND $PASS = ?"
+        // selection arguments
+        val selectionArgs = arrayOf(email, password)
+        // query user table with conditions
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+         */
+        val cursor = db.query(
+            TBL_STUDENT, //Table to query
+            columns, //columns to return
+            selection, //columns for the WHERE clause
+            selectionArgs, //The values for the WHERE clause
+            null,  //group the rows
+            null, //filter by row groups
+            null) //The sort order
+        val cursorCount = cursor.count
+        cursor.close()
+        db.close()
+        if (cursorCount > 0)
+            return true
+        return false
     }
 
 }

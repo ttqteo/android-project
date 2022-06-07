@@ -44,6 +44,8 @@
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/drawable/ic_lock.xml" value="0.18" />
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/activity_main.xml" value="0.3233695652173913" />
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/activity_navigation.xml" value="0.17760416666666667" />
+        <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/fragment_home.xml" value="0.32518115942028986" />
+        <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/fragment_new.xml" value="0.32518115942028986" />
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/fragment_notification.xml" value="0.3233695652173913" />
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/fragment_profile.xml" value="0.3233695652173913" />
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/fragment_row_schedule.xml" value="0.3233695652173913" />
@@ -53,6 +55,7 @@
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/row_feed.xml" value="0.3233695652173913" />
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/row_noti.xml" value="0.3233695652173913" />
         <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/layout/splash.xml" value="0.3233695652173913" />
+        <entry key="..\:/My_NF/My_Document/Android_Project/android-project/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/ngoct/Desktop/moi/android-project/app/src/main/res/layout/activity_navigation.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ngoct/Desktop/moi/android-project/app/src/main/res/layout/fragment_new.xml" value="0.20416666666666666" />
         <entry key="..\:/android-project/app/src/main/res/drawable/border.xml" value="0.202" />

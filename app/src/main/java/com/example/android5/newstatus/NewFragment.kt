@@ -36,12 +36,12 @@ class NewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btPush.setOnClickListener{
-
+            val name =  requireArguments()
             val status = binding.statusNew.text.toString().trim()
             val title_status = binding.statusNew4.text.toString().trim()
             val link_home_web = binding.linkstatus.text.toString().trim()
             viewModel.addFeed(
-                "Phòng công tác sinh viên",
+                "Phong cong tac sinh vien" ,
                 currentDateandTime,
                 status,
                 title_status,

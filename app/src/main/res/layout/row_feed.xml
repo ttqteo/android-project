@@ -75,6 +75,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="0dp"
         android:ellipsize="end"
+        android:paddingLeft="20dp"
         android:maxLines="6"
         android:justificationMode="inter_word"
         android:text="Thông báo kết quả dự kiến Điểm rèn luyện sinh viên HK1/2021-2022 Nhà trường thông báo kết quả Điểm rèn luyện DỰ KIẾN HK1/2021-2022 của sinh viên hệ chính quy và hướng dẫn tiếp nhận khiếu nại như sau: 1. Vì lý do tình hình dịch bệnh, các sinh viên phải học trực tuyến trong suốt HK1/2021-2022 dẫn đến việc tham gia các hoạt động cộng đồng trong sinh viên bị hạn chế." />
@@ -99,7 +100,7 @@
             android:id="@+id/img_link"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/img" />
 
         <LinearLayout
             android:id="@+id/link_title"
@@ -113,15 +114,17 @@
                 android:id="@+id/link_home_web"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="hcmus.edu.vn" />
+                android:text="hcmus.edu.vn"
+                android:paddingLeft="20dp"/>
 
             <TextView
                 android:id="@+id/title_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:maxLines="2"
                 android:justificationMode="inter_word"
+                android:maxLines="2"
+                android:paddingLeft="20dp"
                 android:text="Thông báo kết quả dự kiến Điểm rèn luyện sinh viên HK1/2021-2022"
                 android:textSize="16sp"
                 android:textStyle="bold" />

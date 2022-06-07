@@ -42,40 +42,48 @@ class SignupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSignup.setOnClickListener {
-            addStudent()
-            val controller = findNavController()
-            controller.navigate(R.id.action_signupFragment_to_loginFragment)
+            if(addStudent()) {
+                val controller = findNavController()
+                controller.navigate(R.id.action_signupFragment_to_loginFragment)
+            }
+            else
+            {
+                Toast.makeText( this@SignupFragment.requireContext(),"Sign up Fail",Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.login.setOnClickListener {
             getStudent()
             val controller = findNavController()
-            //controller.navigate(R.id.action_signupFragment_to_loginFragment)
+            controller.navigate(R.id.action_signupFragment_to_loginFragment)
         }
     }
     private fun getStudent(){
         val stdList =sqliteHelper.getAllStudent()
         Log.e("pppp","${stdList.size}")
     }
-    private fun addStudent(){
+    private fun addStudent(): Boolean {
         val name = binding.name.text.toString()
         val email = binding.userName.text.toString()
         val pass = binding.password.text.toString()
 
         if (name.isEmpty() ||email.isEmpty())
         {
-            Toast.makeText( this@SignupFragment.requireContext(),"Please enter nam email",Toast.LENGTH_SHORT).show()
+            Toast.makeText( this@SignupFragment.requireContext(),"Please enter name & email",Toast.LENGTH_SHORT).show()
+            return false
         }
         else {
-            val std = StudentModel(name = name, email = email, pass = pass)
+            val std = StudentModel( name = name, email = email, pass = pass)
             val status  = sqliteHelper.insertStudent(std)
             if (status > -1 )
             {
                 Toast.makeText( this@SignupFragment.requireContext(),"Student add",Toast.LENGTH_SHORT).show()
-                clearEditText()
+                return true
+                //clearEditText()
             }
             else{
                 Toast.makeText( this@SignupFragment.requireContext(),"Record not save",Toast.LENGTH_SHORT).show()
+                return false
             }
         }
     }
