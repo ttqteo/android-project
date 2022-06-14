@@ -32,11 +32,12 @@ class LoginFragment : Fragment() {
     private lateinit var textInputEditTextEmail: TextInputEditText
     private lateinit var textInputEditTextPassword: TextInputEditText
     private lateinit var inputValidation: InputValidation
+    lateinit var sharerf: MySharedpreferences
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sqliteHelper = SQLiteHelper(this)
         viewModel = ViewModelProvider(this).get(LoginVM::class.java)
-
+        MySharedpreferences.init(requireContext())
     }
 
     override fun onCreateView(
@@ -72,7 +73,7 @@ class LoginFragment : Fragment() {
                 intent.putExtras(bundle)
                 requireActivity().startActivity(intent)
                 //controller.navigate(R.id.action_loginFragment_to_mainActivity2)
-
+                MySharedpreferences.saveUsername(email)
 
             }
            // verifyFromSQLite()

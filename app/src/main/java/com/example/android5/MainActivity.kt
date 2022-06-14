@@ -1,5 +1,6 @@
 package com.example.android5
 
+import android.app.FragmentManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val bundle = intent.extras
+
         if (bundle != null) {
             val getMssv = bundle.getString("mssv")
             binding.userName.text =  getMssv
@@ -60,6 +62,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.new_bot -> if (bundle != null) {
                     bundle.getString("mssv")
+                    //val bundleforfeed = Bundle()
+                    //val intent1 = Intent(this.requireContext(), NewFragment::class.java,)
                         ?.let { it1 -> replaceFragment(newFragment, it1) }
                 }
                 R.id.notification_bot -> if (bundle != null) {
