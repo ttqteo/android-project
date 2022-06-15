@@ -79,12 +79,12 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
     private fun replaceFragment(fragment: Fragment, getMissive: String?) {
         val transaction = supportFragmentManager.beginTransaction()
         val bundle = Bundle()
         bundle.putString("mssv",getMissive)
-        transaction.replace(R.id.container, fragment,bundle.toString())
+        fragment.arguments=bundle
+        transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
 }

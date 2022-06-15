@@ -10,10 +10,10 @@ interface FeedDao {
     suspend fun addFeed( feed: Feed)
 
 
-    @Query("SELECT * FROM feed")
+    @Query("SELECT * FROM feed ORDER BY uid DESC")
     suspend fun readalldata(): List<Feed>
 
-    @Query("SELECT name, hour,title_status  FROM feed")
+    @Query("SELECT name, hour,title_status  FROM feed ORDER BY uid DESC")
     suspend fun readnotifydata(): List<Noti>
 
     @Delete

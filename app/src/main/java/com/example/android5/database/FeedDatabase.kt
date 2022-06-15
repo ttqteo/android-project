@@ -10,20 +10,6 @@ abstract class FeedDatabase: RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: FeedDatabase? = null
-
-//        fun getDatabase(context: Context): FeedDatabase {
-//            val temInstance=INSTANCE
-//            if (temInstance!=null)
-//                return temInstance
-//            synchronized(this) {
-//                val instance = Room.databaseBuilder(
-//                    context.applicationContext,
-//                    FeedDatabase::class.java, "feed_database"
-//                ).build()
-//                INSTANCE = instance
-//                return instance
-//            }
-//        }
         fun getDatabase(ctx: Context): FeedDatabase {
             // if the INSTANCE is not null, then return it,
             // if it is, then create the database

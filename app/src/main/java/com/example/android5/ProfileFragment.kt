@@ -25,6 +25,11 @@ class ProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentProfileBinding.inflate(inflater, container, false)
+        val bundle=arguments
+        val message= bundle!!.getString("mssv")
+        binding.mssv.text=message
+
+
         return binding.root
     }
 
@@ -36,6 +41,7 @@ class ProfileFragment : Fragment() {
         if(rs.moveToNext()) {
             binding.studentName.text = rs.getString(1)
         }
+
         binding.btnlogout.setOnClickListener {
             val controller = findNavController()
             controller.navigate(R.id.action_profileFragment_to_loginFragment)
