@@ -1,8 +1,10 @@
 package com.example.android5
 
+import android.content.ContentValues.TAG
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +14,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.android5.database.FirebaseUtils
 import com.example.android5.databinding.FragmentSigninBinding
 import com.example.android5.model.InputValidation
 import com.example.android5.model.SQLiteHelper
@@ -20,6 +23,10 @@ import com.example.fooddelivery.LoginVM
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class LoginFragment : Fragment() {
@@ -33,28 +40,28 @@ class LoginFragment : Fragment() {
     private lateinit var textInputEditTextPassword: TextInputEditText
     private lateinit var inputValidation: InputValidation
     lateinit var sharerf: MySharedpreferences
+    val db = Firebase.firestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sqliteHelper = SQLiteHelper(this)
         viewModel = ViewModelProvider(this).get(LoginVM::class.java)
         MySharedpreferences.init(requireContext())
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentSigninBinding.inflate(inflater, container, false)
+        binding.checkbox.setChecked(true)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        binding.register.setOnClickListener {
-//            val controller = findNavController()
-//            controller.navigate(R.id.action_loginFragment_to_signupFragment)
-//        }
+        binding.userName.setText(MySharedpreferences.getUsername())
+        binding.password.setText(MySharedpreferences.getPass())
 
         binding.signup.setOnClickListener {
             val controller = findNavController()
@@ -66,22 +73,56 @@ class LoginFragment : Fragment() {
             val password = binding.password.text.toString().trim()
             if(loginStudent(email,password))
             {
+
+
+
+//                val user = hashMapOf(
+//                    "first" to "Ada",
+//                    "last" to "Lovelace",
+//                    "born" to 1815
+//                )
+//                // Add a new document with a generated ID
+//                db.collection("users").document("trung")
+//                    .set(user)
+//                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+//                    .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
+//                val hashMap = hashMapOf<String, Any>(
+//                    "name" to "John doe",
+//                    "city" to "Nairobi",
+//                    "age" to 24
+//                )
+//
+//                // use the add() method to create a document inside users collection
+//                FirebaseUtils().fireStoreDatabase.collection("users").document("email")
+//                    .set(hashMap)
+////                    .addOnSuccessListener {
+////                        Log.d(TAG, "Added document with ID ${it.id}")
+////                    }
+////                    .addOnFailureListener { exception ->
+////                        Log.w(TAG, "Error adding document $exception")
+////                    }
+
                 val controller = findNavController()
                 val bundle = Bundle()
                 val intent = Intent(this.requireContext(), MainActivity::class.java)
                 bundle.putString("mssv",email)
                 intent.putExtras(bundle)
                 requireActivity().startActivity(intent)
-                //controller.navigate(R.id.action_loginFragment_to_mainActivity2)
-                MySharedpreferences.saveUsername(email)
+                if (binding.checkbox.isChecked)
+                {
+                    MySharedpreferences.saveUsername(email)
+                    MySharedpreferences.savePass(password)
+                }
+                else
+                    MySharedpreferences.deleteall()
 
+                binding.userName.text?.clear()
+                binding.password.text?.clear()
             }
-           // verifyFromSQLite()
         }
         viewModel.isSuccessEvent.observe(this.viewLifecycleOwner) { isSucess ->
             if (isSucess) {
                 val controller = findNavController()
-                //controller.navigate(R.id.action_loginFragment_to_mainActivity2)
             }
         }
         viewModel.isErrorEvent.observe(this.viewLifecycleOwner) { errMsg ->
@@ -94,7 +135,6 @@ class LoginFragment : Fragment() {
             }
             builder.show()
         }
-
     }
     private fun loginStudent(email: String,password:String): Boolean {
         viewModel.checkEmailAndPassword(email,password)

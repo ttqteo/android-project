@@ -43,6 +43,7 @@ class ProfileFragment : Fragment() {
         }
 
         binding.btnlogout.setOnClickListener {
+            MySharedpreferences.deleteall()
             val controller = findNavController()
             controller.navigate(R.id.action_profileFragment_to_loginFragment)
         }

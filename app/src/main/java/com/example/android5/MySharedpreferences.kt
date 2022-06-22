@@ -11,7 +11,7 @@ object MySharedpreferences {
 
     enum class KEY(val value: String) {
         KEY_USERNAME("KEY_USERNAME"),
-        KEY_MSSV("KEY_MSSV"),
+        KEY_PASS("KEY_PASS"),
     }
 
     fun init(context: Context) {
@@ -26,12 +26,15 @@ object MySharedpreferences {
         return sharedPreferences.getString(KEY.KEY_USERNAME.value, null)
     }
 
-    fun saveMssv(password: String){
-        sharedPreferences.edit().putString(KEY.KEY_MSSV.value, password).apply()
+    fun savePass(password: String){
+        sharedPreferences.edit().putString(KEY.KEY_PASS.value, password).apply()
     }
 
-    fun getMssv() : String? {
-        return sharedPreferences.getString(KEY.KEY_MSSV.value, "")
+    fun getPass() : String? {
+        return sharedPreferences.getString(KEY.KEY_PASS.value, "")
+    }
+    fun deleteall(){
+        sharedPreferences.edit().clear().apply()
     }
 
 }
