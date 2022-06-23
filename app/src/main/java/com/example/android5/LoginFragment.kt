@@ -174,17 +174,17 @@ class LoginFragment : Fragment() {
         val mes=MySharedpreferences.getmes()
         if (mes=="exists") {
             val db = Firebase.firestore
-            var docRef = db.collection("users").document("email")
+            var docRef = db.collection("users").document(mail)
             docRef.get()
                 .addOnSuccessListener { document ->
                     if (document != null) {
-                        //Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                        Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                         val pass  =document["password"]
-                        ///Log.d(TAG, "xxxxxx: ${password}")
-                        //Log.d(TAG, "xxxxxxf: ${document["password"]}")
+                        Log.d(TAG, "xxxxxx: ${password}")
+                        Log.d(TAG, "xxxxxxf: ${document["password"]}")
                         if(document["password"]==password) {
                             MySharedpreferences.savemess("passtrue")
-                            //Log.d(TAG, "yyyyf: ${document["password"]}")
+                            Log.d(TAG, "yyyyf: ${document["password"]}")
                         }
                          else
                         {
@@ -193,7 +193,7 @@ class LoginFragment : Fragment() {
                         }
 
                     } else {
-                        //Log.d(TAG, "No such document")
+                        Log.d(TAG, "No such document")
                     }
                 }
                 .addOnFailureListener { exception ->

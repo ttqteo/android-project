@@ -116,15 +116,15 @@ class SignupFragment : Fragment() {
                 val document = task.result
                 if(document != null) {
                     if (document.exists()) {
-                        //Log.d("TAG", "Document already exists.")
+                        Log.d("TAG", "Document already exists.")
                     MySharedpreferences.savemes("exists")
                     } else {
                         MySharedpreferences.savemes("")
-                        //Log.d("TAG", "Document doesn't exist.")
+                        Log.d("TAG", "Document doesn't exist.")
                     }
                 }
             } else {
-                //Log.d("TAG", "Error: ", task.exception)
+                Log.d("TAG", "Error: ", task.exception)
             }
         }
         val mes=MySharedpreferences.getmes()

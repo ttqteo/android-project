@@ -14,6 +14,7 @@ object MySharedpreferences {
         KEY_PASS("KEY_PASS"),
         KEY_MES("KEY_MES"),
         KEY_MESS("KEY_MESS"),
+        KEY_INT("KEY_INT")
     }
 
     fun init(context: Context) {
@@ -49,6 +50,12 @@ object MySharedpreferences {
     }
     fun getmess() : String? {
         return sharedPreferences.getString(KEY.KEY_MESS.value, "")
+    }
+    fun saveint(int:Int){
+        sharedPreferences.edit().putInt(KEY.KEY_INT.value, int).apply()
+    }
+    fun getint() : Int? {
+        return sharedPreferences.getInt(KEY.KEY_INT.value, -1)
     }
 
 }
