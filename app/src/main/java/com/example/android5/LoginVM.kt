@@ -1,10 +1,8 @@
 package com.example.fooddelivery
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.android5.SignupFragment
 import com.example.android5.model.SQLiteHelper
 
 
@@ -43,31 +41,6 @@ class LoginVM : ViewModel() {
             _isErrorEvent.postValue("Password InValid")
             return
         }
-//        val isCorrect = correctEmailAndPassword(email,password)
-//        if(!isCorrect) {
-//            _isErrorEvent.postValue("Wrong account")
-//            return
-//        }
-//        var db = sqliteHelper.readableDatabase
-//        var args = listOf<String>(email).toTypedArray()
-//        var rs = db.rawQuery("SELECT * FROM TBL_STUDENT WHERE EMAIL = ?",args)
-//        if (!(rs.moveToNext())) {
-//            _isErrorEvent.postValue("Email không tồn tại")
-//            return
-//        }
-//
-//        var args1 = listOf<String>(password).toTypedArray()
-//        var rs1 = db.rawQuery("SELECT * FROM TBL_STUDENT WHERE PASS = ?",args1)
-//        if (!(rs1.moveToNext())) {
-//            _isErrorEvent.postValue("Password khong dung")
-//            return
-//        }
-//        var args2 = listOf<String>(email,password).toTypedArray()
-//        var rs2 = db.rawQuery("SELECT * FROM TBL_STUDENT WHERE EMAIL = ? AND PASS = ?",args2)
-//        if (rs2.moveToNext()) {
-//            _isErrorEvent.postValue("Incorrect Email or Password")
-//            return
-//        }
         _isSuccessEvent.postValue(true)
 
 

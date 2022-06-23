@@ -12,6 +12,8 @@ object MySharedpreferences {
     enum class KEY(val value: String) {
         KEY_USERNAME("KEY_USERNAME"),
         KEY_PASS("KEY_PASS"),
+        KEY_MES("KEY_MES"),
+        KEY_MESS("KEY_MESS"),
     }
 
     fun init(context: Context) {
@@ -35,6 +37,18 @@ object MySharedpreferences {
     }
     fun deleteall(){
         sharedPreferences.edit().clear().apply()
+    }
+    fun savemes(string:String){
+        sharedPreferences.edit().putString(KEY.KEY_MES.value, string).apply()
+    }
+    fun getmes() : String? {
+        return sharedPreferences.getString(KEY.KEY_MES.value, "")
+    }
+    fun savemess(string:String){
+        sharedPreferences.edit().putString(KEY.KEY_MESS.value, string).apply()
+    }
+    fun getmess() : String? {
+        return sharedPreferences.getString(KEY.KEY_MESS.value, "")
     }
 
 }

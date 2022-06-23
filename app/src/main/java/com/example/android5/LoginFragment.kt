@@ -14,7 +14,6 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.android5.database.FirebaseUtils
 import com.example.android5.databinding.FragmentSigninBinding
 import com.example.android5.model.InputValidation
 import com.example.android5.model.SQLiteHelper
@@ -73,35 +72,6 @@ class LoginFragment : Fragment() {
             val password = binding.password.text.toString().trim()
             if(loginStudent(email,password))
             {
-
-
-
-//                val user = hashMapOf(
-//                    "first" to "Ada",
-//                    "last" to "Lovelace",
-//                    "born" to 1815
-//                )
-//                // Add a new document with a generated ID
-//                db.collection("users").document("trung")
-//                    .set(user)
-//                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
-//                    .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
-//                val hashMap = hashMapOf<String, Any>(
-//                    "name" to "John doe",
-//                    "city" to "Nairobi",
-//                    "age" to 24
-//                )
-//
-//                // use the add() method to create a document inside users collection
-//                FirebaseUtils().fireStoreDatabase.collection("users").document("email")
-//                    .set(hashMap)
-////                    .addOnSuccessListener {
-////                        Log.d(TAG, "Added document with ID ${it.id}")
-////                    }
-////                    .addOnFailureListener { exception ->
-////                        Log.w(TAG, "Error adding document $exception")
-////                    }
-
                 val controller = findNavController()
                 val bundle = Bundle()
                 val intent = Intent(this.requireContext(), MainActivity::class.java)
@@ -139,9 +109,9 @@ class LoginFragment : Fragment() {
     private fun loginStudent(email: String,password:String): Boolean {
         viewModel.checkEmailAndPassword(email,password)
         var db = sqliteHelper.readableDatabase
-        var args = listOf<String>(binding.userName.text.toString(),binding.password.text.toString()).toTypedArray()
-        var rs = db.rawQuery("SELECT * FROM TBL_STUDENT WHERE EMAIL = ? AND PASS = ?",args)
-        if (rs.moveToNext()) {
+        //var args = listOf<String>(binding.userName.text.toString(),binding.password.text.toString()).toTypedArray()
+        //var rs = db.rawQuery("SELECT * FROM TBL_STUDENT WHERE EMAIL = ? AND PASS = ?",args)
+        if (checkemailpasscorrect(email,password)) {
             Toast.makeText(this.requireContext(), "Welcome to Access", Toast.LENGTH_LONG).show()
             return true
         }
@@ -180,5 +150,64 @@ class LoginFragment : Fragment() {
         textInputEditTextEmail!!.text = null
         textInputEditTextPassword!!.text = null
     }
+    fun checkemailpasscorrect(mail:String,password: String): Boolean
+    {
+        val db = Firebase.firestore
+        var docRef = db.collection("users").document(mail);
+
+        docRef.get().addOnCompleteListener() { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if(document != null) {
+                    if (document.exists()) {
+                        Log.d("TAG", "Document already exists.")
+                        MySharedpreferences.savemes("exists")
+                    } else {
+                        MySharedpreferences.savemes("")
+                        Log.d("TAG", "Document doesn't exist.")
+                    }
+                }
+            } else {
+                Log.d("TAG", "Error: ", task.exception)
+            }
+        }
+        val mes=MySharedpreferences.getmes()
+        if (mes=="exists") {
+            val db = Firebase.firestore
+            var docRef = db.collection("users").document("email")
+            docRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        //Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                        val pass  =document["password"]
+                        ///Log.d(TAG, "xxxxxx: ${password}")
+                        //Log.d(TAG, "xxxxxxf: ${document["password"]}")
+                        if(document["password"]==password) {
+                            MySharedpreferences.savemess("passtrue")
+                            //Log.d(TAG, "yyyyf: ${document["password"]}")
+                        }
+                         else
+                        {
+                            MySharedpreferences.savemess("passfalse")
+                            Log.d(TAG, "yyyyqqqf: ${document["password"]}")
+                        }
+
+                    } else {
+                        //Log.d(TAG, "No such document")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d(TAG, "get failed with ", exception)
+                }
+            if(MySharedpreferences.getmess()=="passtrue") return true
+            return false
+        }
+        else{
+            Toast.makeText( this@LoginFragment.requireContext(),"email is not correct ",Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+    }
 }
+
 

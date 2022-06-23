@@ -2,12 +2,10 @@ package com.example.android5.model
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
-import android.content.Context
 import android.database.Cursor
 import android. database.sqlite.SQLiteDatabase
 import android.database.sqlite. SQLiteOpenHelper
 import androidx.fragment.app.Fragment
-import com.example.android5.SignupFragment
 
 class SQLiteHelper(fragment: Fragment) : SQLiteOpenHelper(fragment.requireContext(), DATABASE_NAME,null , DATABASE_VERSION) {
     companion object {
