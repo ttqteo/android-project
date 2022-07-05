@@ -47,9 +47,6 @@ class NewFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btPush.setOnClickListener{
-            //var name=MySharedpreferences.getUsername()
-            //if (name==null) name="*"
-
             val bundle=arguments
             var name= bundle!!.getString("mssv")
             if (name==null) name="*"

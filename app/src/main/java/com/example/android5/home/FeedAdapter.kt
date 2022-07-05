@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android5.R
-import com.example.android5.database.Feed
+import com.example.android5.model.Feed
 
 
 class   FeedAdapter : ListAdapter<Feed, FeedAdapter.FeedViewHolder>(FeedDiffUtil()) {

@@ -18,8 +18,6 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     lateinit var viewModel: HomeVM
     private lateinit var adapter : FeedAdapter
-    lateinit var newRecyclerView: RecyclerView
-    lateinit var newArrayList: ArrayList<Feed>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

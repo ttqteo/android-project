@@ -18,14 +18,12 @@ class NotificationFragment : Fragment() {
     lateinit var viewModel: NotificationVM
     private lateinit var adapter : NotiAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel=ViewModelProvider(
             this,
             ViewModelFactory(context?.applicationContext as FeedData)
         )[NotificationVM::class.java]
-
     }
 
     override fun onCreateView(

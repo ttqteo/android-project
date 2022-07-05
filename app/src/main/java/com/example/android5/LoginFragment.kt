@@ -108,7 +108,7 @@ class LoginFragment : Fragment() {
     }
     private fun loginStudent(email: String,password:String): Boolean {
         viewModel.checkEmailAndPassword(email,password)
-        var db = sqliteHelper.readableDatabase
+        //var db = sqliteHelper.readableDatabase
         //var args = listOf<String>(binding.userName.text.toString(),binding.password.text.toString()).toTypedArray()
         //var rs = db.rawQuery("SELECT * FROM TBL_STUDENT WHERE EMAIL = ? AND PASS = ?",args)
         if (checkemailpasscorrect(email,password)) {
